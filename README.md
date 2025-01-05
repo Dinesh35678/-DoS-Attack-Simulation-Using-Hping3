@@ -79,7 +79,8 @@ Flood the target with ICMP packets:
 hping3 --icmp --flood <target IP>
 ```
 
-- `--icmp`: Send ICMP packets.- `--flood`: Send packets as fast as possible.
+- `--icmp`: Send ICMP packets.
+- `--flood`: Send packets as fast as possible.
 
 ---
 
@@ -92,6 +93,24 @@ hping3 --icmp --flood <target IP>
 ### On Windows 🪟
 1. Open the Cygwin terminal. 📂
 2. Run the Hping3 command in the Cygwin environment. ✅
+
+---
+
+## 🔍 Detecting DoS Attacks Using Wireshark
+
+Wireshark is a powerful network protocol analyzer that can be used to detect DoS attacks. 🕵️‍♂️
+
+### Steps to Detect DoS Using Wireshark:
+1. **Start Wireshark**: Open Wireshark on the target machine. 🖥️
+2. **Select Network Interface**: Choose the appropriate network interface to monitor traffic.
+3. **Apply Filters**: Use filters to isolate suspicious traffic. Examples:
+   - `tcp.flags.syn == 1 and tcp.flags.ack == 0`: Detect SYN flood attacks.
+   - `udp`: Monitor excessive UDP traffic for potential flood attacks.
+   - `icmp`: Analyze ICMP traffic to detect ICMP flood attacks.
+4. **Analyze Traffic**:
+   - Look for an unusually high number of packets from a single source IP or to a specific port.
+   - Check for patterns in packet size and frequency.
+5. **Save Logs**: Export captured traffic for further analysis or reporting.
 
 ---
 
